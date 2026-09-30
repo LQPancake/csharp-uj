@@ -1,211 +1,228 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleUni2
 {
     public class ComicStock
     {
-        public int totalInStockJoker { get; set; }
-        public int totalInStockBatman { get; set; }
-        public int totalInStockCat { get; set; }
-        public int totalInStockPenguin { get; set; }
+        public string ThemeName { get; set; }
+        public int Price { get; set; }   // $ per book
+        public int Stock { get; set; }   // books currently in stock
+
+        public ComicStock(string themeName, int price, int stock)
+        {
+            ThemeName = themeName;
+            Price = price;
+            Stock = stock;
+        }
+
+        public int TotalValue()
+        {
+            return Stock * Price;
+        }
     }
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            Processor login = new Processor();
-            login.Process();
-            Console.ReadKey();
+            Processor processor = new Processor();
+            processor.Process();
         }
     }
+
     class Processor
     {
+        private const string ValidUsername = "admin";
+        private const string ValidPassword = "adminpass";
+
+        private List<ComicStock> comics = new List<ComicStock>();
+
         public void Process()
         {
-            int totalInStockJoker = 398;
-            int jokerComicValue = 13;
+            // Starting data
+            comics.Add(new ComicStock("Joker", 13, 398));
+            comics.Add(new ComicStock("Batman", 22, 1203));
+            comics.Add(new ComicStock("Cat", 11, 452));
+            comics.Add(new ComicStock("Riddler", 15, 100));
+            comics.Add(new ComicStock("Penguin", 19, 201));
 
-            int totalInStockBatman = 1203;
-            int batmanComicValue = 22;
-
-            int totalInStockCat = 452;
-            int catComicValue = 11;
-
-            int totalInStockRiddler = 100;
-            int riddlerComicValue = 15;
-
-            int totalInStockPenguin = 201;
-            int penguinComicValue = 19;
-
-            int totalStockAll = totalInStockJoker + totalInStockBatman + totalInStockCat + totalInStockRiddler + totalInStockPenguin;
-            string stockStatus = "Normal";
-
-            // Login interface
-            while (true)
+            // Login: one attempt and exit if not authorized
+            if (!Login())
             {
-                Console.Write("Please provide username to access the ComicX system (test user: admin): ");
-                string username = Console.ReadLine();
-
-                Console.Write("Please provide password (test user: adminpass): ");
-                string password = Console.ReadLine();
-
-                if (username != "admin" || password != "adminpass")
-                {
-                    Console.Clear();
-                    Console.WriteLine(
-                        "You are not authorized to access this service\n" +
-                        "Press enter to try logging in again."
-                    );
-                    Console.ReadLine();
-                }
-                else
-                {
-                    break;
-                }
+                Console.WriteLine("You are not authorized to access this service");
+                Console.WriteLine("\nPress any key to exit...");
+                Console.ReadKey();
+                return;
             }
 
-            // Options interface
-            while (true)
+            // Menu loop
+            bool running = true;
+            while (running)
             {
                 Console.Clear();
-
                 Console.WriteLine(
                     "****** Here are your options ******\n" +
                     "Please select the action.\n" +
                     "1. Show stock count for each theme of books.\n" +
                     "2. Show total value of each theme type for all comic books in stock.\n" +
                     "3. Register one comic book sold for a given theme.\n" +
-                    "4. Get stock status // veryLow, Low, Normal, Over"
+                    "4. Get stock status // veryLow, Low, Normal, Over\n" +
+                    "5. Exit"
                 );
 
-                int option = int.Parse(Console.ReadLine());
+                int option = ReadInt("Your choice: ");
 
-                // Stock print
-                if (option == 1)
+                switch (option)
                 {
-                    Console.Clear();
-
-                    Console.WriteLine(
-                        $"Joker comic book stock: {totalInStockJoker}\n" +
-                        $"Batman comic book stock: {totalInStockBatman}\n" +
-                        $"Cat comic book stock: {totalInStockCat}\n" +
-                        $"Riddler comic book stock: {totalInStockRiddler}\n" +
-                        $"Penguin comic book stock: {totalInStockPenguin}"
-                    );
-
-                    Console.WriteLine("\nPress Enter to return to the menu...");
-                    Console.ReadLine();
-                }
-                // Stock value print
-                else if (option == 2)
-                {
-                    Console.Clear();
-
-                    Console.WriteLine(
-                        $"Total value of Joker comics: ${totalInStockJoker * jokerComicValue}\n" +
-                        $"Total value of Batman comics: ${totalInStockBatman * batmanComicValue}\n" +
-                        $"Total value of Cat comics: ${totalInStockCat * catComicValue}\n" +
-                        $"Total value of Riddler comics: ${totalInStockRiddler * riddlerComicValue}\n" +
-                        $"Total value of Penguin comics: ${totalInStockPenguin * penguinComicValue}"
-                    );
-
-                    Console.WriteLine($"\nPress enter to return to the menu...");
-                    Console.ReadLine();
-
-                }
-                // Sold message
-                else if (option == 3)
-                {
-                    Console.Clear();
-
-                    Console.WriteLine("Register one comic book sold, themes are below.\n" +
-                        $"1. Joker (stock: {totalInStockJoker})\n" +
-                        $"2. Batman (stock: {totalInStockBatman})\n" +
-                        $"3. Cat (stock: {totalInStockCat})\n" +
-                        $"4. Riddler (stock: {totalInStockRiddler})\n" +
-                        $"5. Penguin (stock: {totalInStockPenguin})"
-                        );
-                    int registerOption = int.Parse(Console.ReadLine());
-                    if (registerOption == 1)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"A Joker comic has been sold!\n");
-                        Console.WriteLine("\nPress Enter to return to the menu...");
-                        Console.ReadLine();
-
-                    }
-                    else if (registerOption == 2)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"A Batman comic has been sold!\n");
-                        Console.WriteLine("\nPress Enter to return to the menu...");
-                        Console.ReadLine();
-
-                    }
-                    else if (registerOption == 3)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"A Cat comic has been sold!\n");
-                        Console.WriteLine("\nPress Enter to return to the menu...");
-                        Console.ReadLine();
-
-                    }
-                    else if (registerOption == 4)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"A Riddler comic has been sold!\n");
-                        Console.WriteLine("\nPress Enter to return to the menu...");
-                        Console.ReadLine();
-
-                    }
-                    else if (registerOption == 5)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"A Penguin comic has been sold!\n");
-                        Console.WriteLine("\nPress Enter to return to the menu...");
-                        Console.ReadLine();
-
-                    }
-
-
-
-
-                }
-                // Stock status
-                else if (option == 4)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Total stock of every comic book is...\n" +
-                        $"{totalStockAll}");
-                    if(totalStockAll <= 1000)
-                    {
-                        stockStatus = "Very Low";
-                    }
-                    else if(totalStockAll <= 1000 && totalStockAll >= 1500)
-                    {
-                        stockStatus = "Low";
-                    }
-                    else if(totalStockAll >= 1500)
-                    {
-                        stockStatus = "Normal";
-                    }
-                    else if(totalStockAll >= 5000)
-                    {
-                        stockStatus = "Over";
-                    }
-                    Console.WriteLine("Stock status is...\n" +
-                        $"{stockStatus}");
-                    Console.WriteLine("\nPress Enter to return to the menu...");
-                    Console.ReadLine();
-
+                    case 1:
+                        ShowStockCounts();
+                        break;
+                    case 2:
+                        ShowStockValues();
+                        break;
+                    case 3:
+                        RegisterSale();
+                        break;
+                    case 4:
+                        ShowStockStatus();
+                        break;
+                    case 5:
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("\nInvalid option, please choose between 1 and 5.");
+                        WaitForEnter();
+                        break;
                 }
             }
 
+            Console.WriteLine("Goodbye!");
+        }
+
+        // ---------- Login ----------
+
+        private bool Login()
+        {
+            Console.Write("Please provide username to access the ComicX system (test user: admin): ");
+            string username = Console.ReadLine();
+
+            Console.Write("Please provide password (test user: adminpass): ");
+            string password = Console.ReadLine();
+
+            return username == ValidUsername && password == ValidPassword;
+        }
+
+        // ---------- Menu actions ----------
+
+        private void ShowStockCounts()
+        {
+            Console.Clear();
+            foreach (ComicStock comic in comics)
+            {
+                Console.WriteLine($"{comic.ThemeName} comic book stock: {comic.Stock}");
+            }
+            WaitForEnter();
+        }
+
+        private void ShowStockValues()
+        {
+            Console.Clear();
+            foreach (ComicStock comic in comics)
+            {
+                Console.WriteLine($"Total value of {comic.ThemeName} comics: ${comic.TotalValue()}");
+            }
+            WaitForEnter();
+        }
+
+        private void RegisterSale()
+        {
+            Console.Clear();
+            Console.WriteLine("Register one comic book sold, themes are below.");
+            for (int i = 0; i < comics.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {comics[i].ThemeName} (stock: {comics[i].Stock})");
+            }
+
+            int choice = ReadInt("Your choice: ");
+
+            if (choice < 1 || choice > comics.Count)
+            {
+                Console.WriteLine("\nInvalid theme.");
+                WaitForEnter();
+                return;
+            }
+
+            string theme = comics[choice - 1].ThemeName;
+
+            if (OneBookSold(theme))
+            {
+                Console.WriteLine($"\nA {theme} comic has been sold!");
+            }
+            else
+            {
+                Console.WriteLine($"\nCannot register sale: no {theme} comics left in stock.");
+            }
+            WaitForEnter();
+        }
+
+        private void ShowStockStatus()
+        {
+            Console.Clear();
+            Console.WriteLine($"Total stock of every comic book is...\n{TotalStock()}");
+            Console.WriteLine($"Stock status is...\n{GetStockStatus()}");
+            WaitForEnter();
+        }
+
+        // ---------- Logic methods ----------
+
+        public bool OneBookSold(string themeType)
+        {
+            ComicStock comic = comics.FirstOrDefault(
+                c => c.ThemeName.Equals(themeType, StringComparison.OrdinalIgnoreCase));
+
+            if (comic == null || comic.Stock <= 0)
+            {
+                return false;
+            }
+
+            comic.Stock--;
+            return true;
+        }
+
+        public int TotalStock()
+        {
+            return comics.Sum(c => c.Stock);
+        }
+
+        // veryLow: < 1000, Low: 1000-1500, Normal: > 1500, Over: > 5000
+        public string GetStockStatus()
+        {
+            int total = TotalStock();
+
+            if (total > 5000) return "Over";
+            if (total > 1500) return "Normal";
+            if (total >= 1000) return "Low";
+            return "Very Low";
+        }
+
+        // ---------- Helpers ----------
+        private int ReadInt(string prompt)
+        {
+            int value;
+            Console.Write(prompt);
+            while (!int.TryParse(Console.ReadLine(), out value))
+            {
+                Console.Write("Please enter a number: ");
+            }
+            return value;
+        }
+
+        private void WaitForEnter()
+        {
+            Console.WriteLine("\nPress Enter to return to the menu...");
+            Console.ReadLine();
         }
     }
 }

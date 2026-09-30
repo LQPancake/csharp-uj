@@ -12,3 +12,10 @@ C:\munkak\ConsoleUni2\obj\Debug\ConsoleUni2.csproj.AssemblyReference.cache
 C:\munkak\ConsoleUni2\obj\Debug\ConsoleUni2.csproj.CoreCompileInputs.cache
 C:\munkak\ConsoleUni2\obj\Debug\ConsoleUni2.exe
 C:\munkak\ConsoleUni2\obj\Debug\ConsoleUni2.pdb
+C:\munkak\csharp-uj\ConsoleUni2\bin\Debug\ConsoleUni2.exe.config
+C:\munkak\csharp-uj\ConsoleUni2\bin\Debug\ConsoleUni2.exe
+C:\munkak\csharp-uj\ConsoleUni2\bin\Debug\ConsoleUni2.pdb
+C:\munkak\csharp-uj\ConsoleUni2\obj\Debug\ConsoleUni2.csproj.AssemblyReference.cache
+C:\munkak\csharp-uj\ConsoleUni2\obj\Debug\ConsoleUni2.csproj.CoreCompileInputs.cache
+C:\munkak\csharp-uj\ConsoleUni2\obj\Debug\ConsoleUni2.exe
+C:\munkak\csharp-uj\ConsoleUni2\obj\Debug\ConsoleUni2.pdb
