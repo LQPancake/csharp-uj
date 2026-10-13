@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace ComicLibrary
 {
@@ -20,20 +21,30 @@ namespace ComicLibrary
             return Stock * Price;
         }
     }
-    class Processor
+    public class ComicRepo
     {
 
         private List<ComicStock> comics = new List<ComicStock>();
-
-        public void Process()
+        public ComicRepo(string filepath)
         {
-            // Starting data
-            comics.Add(new ComicStock("Joker", 13, 398));
-            comics.Add(new ComicStock("Batman", 22, 1203));
-            comics.Add(new ComicStock("Cat", 11, 452));
-            comics.Add(new ComicStock("Riddler", 15, 100));
-            comics.Add(new ComicStock("Penguin", 19, 201));
+            string[] lines = File.ReadAllLines(filepath);
+            foreach(string line in lines)
+            {
+                string[] parts = line.Split(',');
+                ComicStock comic = new ComicStock(
+                    parts[0],
+                    int.Parse(parts[1]),
+                    int.Parse(parts[2])
+                );
+                comics.Add(comic);
+            }
         }
+        public List<ComicStock> GetAllComics()
+        {
+            return comics;
+        }
+
+
     }
     public class LoginSystem
     {

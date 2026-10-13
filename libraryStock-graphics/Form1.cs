@@ -71,5 +71,10 @@ namespace libraryStock_graphics
             Application.Exit();
 
         }
+
+        private void buttonStockCount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

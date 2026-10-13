@@ -37,9 +37,11 @@
             this.buttonTotalStockStatus = new System.Windows.Forms.Button();
             this.buttonSellBook = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.listBoxData = new System.Windows.Forms.ListBox();
+            this.listBoxRegisterSold = new System.Windows.Forms.ListBox();
             this.labelLoginStatus = new System.Windows.Forms.Label();
             this.groupBoxProgram = new System.Windows.Forms.GroupBox();
+            this.listViewStock = new System.Windows.Forms.ListView();
+            this.labelFlair = new System.Windows.Forms.Label();
             this.groupBoxProgram.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +90,7 @@
             this.buttonStockCount.TabIndex = 4;
             this.buttonStockCount.Text = "Stock Count";
             this.buttonStockCount.UseVisualStyleBackColor = true;
+            this.buttonStockCount.Click += new System.EventHandler(this.buttonStockCount_Click);
             // 
             // buttonStockValue
             // 
@@ -126,13 +129,13 @@
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // listBoxData
+            // listBoxRegisterSold
             // 
-            this.listBoxData.FormattingEnabled = true;
-            this.listBoxData.Location = new System.Drawing.Point(381, 73);
-            this.listBoxData.Name = "listBoxData";
-            this.listBoxData.Size = new System.Drawing.Size(237, 147);
-            this.listBoxData.TabIndex = 9;
+            this.listBoxRegisterSold.FormattingEnabled = true;
+            this.listBoxRegisterSold.Location = new System.Drawing.Point(75, 236);
+            this.listBoxRegisterSold.Name = "listBoxRegisterSold";
+            this.listBoxRegisterSold.Size = new System.Drawing.Size(133, 108);
+            this.listBoxRegisterSold.TabIndex = 9;
             // 
             // labelLoginStatus
             // 
@@ -146,7 +149,9 @@
             // 
             // groupBoxProgram
             // 
-            this.groupBoxProgram.Controls.Add(this.listBoxData);
+            this.groupBoxProgram.Controls.Add(this.labelFlair);
+            this.groupBoxProgram.Controls.Add(this.listViewStock);
+            this.groupBoxProgram.Controls.Add(this.listBoxRegisterSold);
             this.groupBoxProgram.Controls.Add(this.buttonSellBook);
             this.groupBoxProgram.Controls.Add(this.buttonTotalStockStatus);
             this.groupBoxProgram.Controls.Add(this.buttonStockValue);
@@ -157,6 +162,25 @@
             this.groupBoxProgram.TabIndex = 11;
             this.groupBoxProgram.TabStop = false;
             this.groupBoxProgram.Visible = false;
+            // 
+            // listViewStock
+            // 
+            this.listViewStock.HideSelection = false;
+            this.listViewStock.Location = new System.Drawing.Point(126, 56);
+            this.listViewStock.Name = "listViewStock";
+            this.listViewStock.Size = new System.Drawing.Size(169, 80);
+            this.listViewStock.TabIndex = 10;
+            this.listViewStock.UseCompatibleStateImageBehavior = false;
+            // 
+            // labelFlair
+            // 
+            this.labelFlair.AutoSize = true;
+            this.labelFlair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelFlair.Location = new System.Drawing.Point(532, 167);
+            this.labelFlair.Name = "labelFlair";
+            this.labelFlair.Size = new System.Drawing.Size(28, 24);
+            this.labelFlair.TabIndex = 11;
+            this.labelFlair.Text = ":D";
             // 
             // Form1
             // 
@@ -173,6 +197,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBoxProgram.ResumeLayout(false);
+            this.groupBoxProgram.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,9 +214,11 @@
         private System.Windows.Forms.Button buttonTotalStockStatus;
         private System.Windows.Forms.Button buttonSellBook;
         private System.Windows.Forms.Button buttonExit;
-        private System.Windows.Forms.ListBox listBoxData;
+        private System.Windows.Forms.ListBox listBoxRegisterSold;
         private System.Windows.Forms.Label labelLoginStatus;
         private System.Windows.Forms.GroupBox groupBoxProgram;
+        private System.Windows.Forms.ListView listViewStock;
+        private System.Windows.Forms.Label labelFlair;
     }
 }
 
