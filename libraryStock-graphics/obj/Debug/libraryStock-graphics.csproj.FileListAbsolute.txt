@@ -1,0 +1,13 @@
+C:\munkak\Github\csharp uj\libraryStock-graphics\bin\Debug\libraryStock-graphics.exe.config
+C:\munkak\Github\csharp uj\libraryStock-graphics\bin\Debug\libraryStock-graphics.exe
+C:\munkak\Github\csharp uj\libraryStock-graphics\bin\Debug\libraryStock-graphics.pdb
+C:\munkak\Github\csharp uj\libraryStock-graphics\bin\Debug\libraryStock-ClassLibrary.dll
+C:\munkak\Github\csharp uj\libraryStock-graphics\bin\Debug\libraryStock-ClassLibrary.pdb
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock-graphics.csproj.AssemblyReference.cache
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock_graphics.Form1.resources
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock_graphics.Properties.Resources.resources
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock-graphics.csproj.GenerateResource.cache
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock-graphics.csproj.CoreCompileInputs.cache
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryS.2BBA6B3B.Up2Date
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock-graphics.exe
+C:\munkak\Github\csharp uj\libraryStock-graphics\obj\Debug\libraryStock-graphics.pdb

@@ -1,0 +1,6 @@
+C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\bin\Debug\libraryStock-ClassLibrary.dll
+C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\bin\Debug\libraryStock-ClassLibrary.pdb
+C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\obj\Debug\libraryStock-ClassLibrary.csproj.AssemblyReference.cache
+C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\obj\Debug\libraryStock-ClassLibrary.csproj.CoreCompileInputs.cache
+C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\obj\Debug\libraryStock-ClassLibrary.dll
+C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\obj\Debug\libraryStock-ClassLibrary.pdb

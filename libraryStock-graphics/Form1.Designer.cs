@@ -32,12 +32,15 @@
             this.textboxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.buttonOption1 = new System.Windows.Forms.Button();
-            this.buttonOption2 = new System.Windows.Forms.Button();
-            this.buttonOption4 = new System.Windows.Forms.Button();
-            this.buttonOption3 = new System.Windows.Forms.Button();
+            this.buttonStockCount = new System.Windows.Forms.Button();
+            this.buttonStockValue = new System.Windows.Forms.Button();
+            this.buttonTotalStockStatus = new System.Windows.Forms.Button();
+            this.buttonSellBook = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.listBoxData = new System.Windows.Forms.ListBox();
+            this.labelLoginStatus = new System.Windows.Forms.Label();
+            this.groupBoxProgram = new System.Windows.Forms.GroupBox();
+            this.groupBoxProgram.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelLogin
@@ -56,6 +59,7 @@
             this.textboxUsername.Name = "textboxUsername";
             this.textboxUsername.Size = new System.Drawing.Size(119, 20);
             this.textboxUsername.TabIndex = 1;
+            this.textboxUsername.TextChanged += new System.EventHandler(this.textboxUsername_TextChanged);
             // 
             // textBoxPassword
             // 
@@ -63,6 +67,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(119, 20);
             this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
             // buttonLogin
             // 
@@ -72,77 +78,101 @@
             this.buttonLogin.TabIndex = 3;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // buttonOption1
+            // buttonStockCount
             // 
-            this.buttonOption1.Location = new System.Drawing.Point(406, 40);
-            this.buttonOption1.Name = "buttonOption1";
-            this.buttonOption1.Size = new System.Drawing.Size(75, 23);
-            this.buttonOption1.TabIndex = 4;
-            this.buttonOption1.Text = "button1";
-            this.buttonOption1.UseVisualStyleBackColor = true;
+            this.buttonStockCount.Location = new System.Drawing.Point(75, 156);
+            this.buttonStockCount.Name = "buttonStockCount";
+            this.buttonStockCount.Size = new System.Drawing.Size(133, 34);
+            this.buttonStockCount.TabIndex = 4;
+            this.buttonStockCount.Text = "Stock Count";
+            this.buttonStockCount.UseVisualStyleBackColor = true;
             // 
-            // buttonOption2
+            // buttonStockValue
             // 
-            this.buttonOption2.Location = new System.Drawing.Point(406, 80);
-            this.buttonOption2.Name = "buttonOption2";
-            this.buttonOption2.Size = new System.Drawing.Size(75, 23);
-            this.buttonOption2.TabIndex = 5;
-            this.buttonOption2.Text = "button2";
-            this.buttonOption2.UseVisualStyleBackColor = true;
+            this.buttonStockValue.Location = new System.Drawing.Point(214, 157);
+            this.buttonStockValue.Name = "buttonStockValue";
+            this.buttonStockValue.Size = new System.Drawing.Size(133, 34);
+            this.buttonStockValue.TabIndex = 5;
+            this.buttonStockValue.Text = "Stock Value";
+            this.buttonStockValue.UseVisualStyleBackColor = true;
             // 
-            // buttonOption4
+            // buttonTotalStockStatus
             // 
-            this.buttonOption4.Location = new System.Drawing.Point(406, 160);
-            this.buttonOption4.Name = "buttonOption4";
-            this.buttonOption4.Size = new System.Drawing.Size(75, 23);
-            this.buttonOption4.TabIndex = 6;
-            this.buttonOption4.Text = "button3";
-            this.buttonOption4.UseVisualStyleBackColor = true;
+            this.buttonTotalStockStatus.Location = new System.Drawing.Point(214, 193);
+            this.buttonTotalStockStatus.Name = "buttonTotalStockStatus";
+            this.buttonTotalStockStatus.Size = new System.Drawing.Size(133, 37);
+            this.buttonTotalStockStatus.TabIndex = 6;
+            this.buttonTotalStockStatus.Text = "Total Stock Status";
+            this.buttonTotalStockStatus.UseVisualStyleBackColor = true;
             // 
-            // buttonOption3
+            // buttonSellBook
             // 
-            this.buttonOption3.Location = new System.Drawing.Point(406, 120);
-            this.buttonOption3.Name = "buttonOption3";
-            this.buttonOption3.Size = new System.Drawing.Size(75, 23);
-            this.buttonOption3.TabIndex = 7;
-            this.buttonOption3.Text = "button4";
-            this.buttonOption3.UseVisualStyleBackColor = true;
+            this.buttonSellBook.Location = new System.Drawing.Point(75, 196);
+            this.buttonSellBook.Name = "buttonSellBook";
+            this.buttonSellBook.Size = new System.Drawing.Size(133, 34);
+            this.buttonSellBook.TabIndex = 7;
+            this.buttonSellBook.Text = "Register a book as sold";
+            this.buttonSellBook.UseVisualStyleBackColor = true;
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(60, 345);
+            this.buttonExit.Location = new System.Drawing.Point(348, 402);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(75, 23);
             this.buttonExit.TabIndex = 8;
-            this.buttonExit.Text = "EXIT";
+            this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // listBoxData
             // 
             this.listBoxData.FormattingEnabled = true;
-            this.listBoxData.Location = new System.Drawing.Point(524, 40);
+            this.listBoxData.Location = new System.Drawing.Point(381, 73);
             this.listBoxData.Name = "listBoxData";
             this.listBoxData.Size = new System.Drawing.Size(237, 147);
             this.listBoxData.TabIndex = 9;
+            // 
+            // labelLoginStatus
+            // 
+            this.labelLoginStatus.AutoSize = true;
+            this.labelLoginStatus.Location = new System.Drawing.Point(26, 164);
+            this.labelLoginStatus.Name = "labelLoginStatus";
+            this.labelLoginStatus.Size = new System.Drawing.Size(57, 13);
+            this.labelLoginStatus.TabIndex = 10;
+            this.labelLoginStatus.Text = "Logged in!";
+            this.labelLoginStatus.Visible = false;
+            // 
+            // groupBoxProgram
+            // 
+            this.groupBoxProgram.Controls.Add(this.listBoxData);
+            this.groupBoxProgram.Controls.Add(this.buttonSellBook);
+            this.groupBoxProgram.Controls.Add(this.buttonTotalStockStatus);
+            this.groupBoxProgram.Controls.Add(this.buttonStockValue);
+            this.groupBoxProgram.Controls.Add(this.buttonStockCount);
+            this.groupBoxProgram.Location = new System.Drawing.Point(170, 41);
+            this.groupBoxProgram.Name = "groupBoxProgram";
+            this.groupBoxProgram.Size = new System.Drawing.Size(627, 361);
+            this.groupBoxProgram.TabIndex = 11;
+            this.groupBoxProgram.TabStop = false;
+            this.groupBoxProgram.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBoxData);
+            this.Controls.Add(this.groupBoxProgram);
+            this.Controls.Add(this.labelLoginStatus);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.buttonOption3);
-            this.Controls.Add(this.buttonOption4);
-            this.Controls.Add(this.buttonOption2);
-            this.Controls.Add(this.buttonOption1);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textboxUsername);
             this.Controls.Add(this.labelLogin);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBoxProgram.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,12 +184,14 @@
         private System.Windows.Forms.TextBox textboxUsername;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.Button buttonOption1;
-        private System.Windows.Forms.Button buttonOption2;
-        private System.Windows.Forms.Button buttonOption4;
-        private System.Windows.Forms.Button buttonOption3;
+        private System.Windows.Forms.Button buttonStockCount;
+        private System.Windows.Forms.Button buttonStockValue;
+        private System.Windows.Forms.Button buttonTotalStockStatus;
+        private System.Windows.Forms.Button buttonSellBook;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.ListBox listBoxData;
+        private System.Windows.Forms.Label labelLoginStatus;
+        private System.Windows.Forms.GroupBox groupBoxProgram;
     }
 }
 
