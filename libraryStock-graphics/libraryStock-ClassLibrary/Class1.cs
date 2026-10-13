@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace ComicLibrary
 {
@@ -22,8 +23,7 @@ namespace ComicLibrary
         }
     }
     public class ComicRepo
-    {
-
+    {    
         private List<ComicStock> comics = new List<ComicStock>();
         public ComicRepo(string filepath)
         {
@@ -43,8 +43,6 @@ namespace ComicLibrary
         {
             return comics;
         }
-
-
     }
     public class LoginSystem
     {

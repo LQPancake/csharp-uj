@@ -74,6 +74,47 @@ namespace libraryStock_graphics
 
         private void buttonStockCount_Click(object sender, EventArgs e)
         {
+            listViewStock.Visible = !listViewStock.Visible;
+            string filepath = @"C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\bin\Debug\Comics.csv";
+            ComicRepo repo = new ComicRepo(filepath);
+            listViewStock.Items.Clear();
+            List<ComicStock> comics = repo.GetAllComics();
+            foreach (ComicStock comic in comics)
+            {
+                ListViewItem item = new ListViewItem(comic.ThemeName);
+
+                item.SubItems.Add(comic.Price.ToString());
+                item.SubItems.Add(comic.Stock.ToString());
+
+                listViewStock.Items.Add(item);
+            }
+        }
+
+        private void listViewStock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonStockValue_Click(object sender, EventArgs e)
+        {
+            listViewStockValue.Visible = !listViewStockValue.Visible;
+            string filepath = @"C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\bin\Debug\Comics.csv";
+            ComicRepo repo = new ComicRepo(filepath);
+            listViewStockValue.Items.Clear();
+            List<ComicStock> comics = repo.GetAllComics();
+            foreach (ComicStock comic in comics)
+            {
+                ListViewItem item = new ListViewItem(comic.ThemeName);
+
+                item.SubItems.Add(comic.TotalValue().ToString());
+
+                listViewStockValue.Items.Add(item);
+
+            }
+        }
+
+        private void buttonSellBook_Click(object sender, EventArgs e)
+        {
 
         }
     }

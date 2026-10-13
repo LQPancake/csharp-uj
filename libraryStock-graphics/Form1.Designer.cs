@@ -37,11 +37,16 @@
             this.buttonTotalStockStatus = new System.Windows.Forms.Button();
             this.buttonSellBook = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.listBoxRegisterSold = new System.Windows.Forms.ListBox();
             this.labelLoginStatus = new System.Windows.Forms.Label();
             this.groupBoxProgram = new System.Windows.Forms.GroupBox();
-            this.listViewStock = new System.Windows.Forms.ListView();
             this.labelFlair = new System.Windows.Forms.Label();
+            this.listViewStock = new System.Windows.Forms.ListView();
+            this.columnHeaderTheme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderStock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewStockValue = new System.Windows.Forms.ListView();
+            this.columnHeaderTheme2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderValue2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxProgram.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +105,7 @@
             this.buttonStockValue.TabIndex = 5;
             this.buttonStockValue.Text = "Stock Value";
             this.buttonStockValue.UseVisualStyleBackColor = true;
+            this.buttonStockValue.Click += new System.EventHandler(this.buttonStockValue_Click);
             // 
             // buttonTotalStockStatus
             // 
@@ -118,6 +124,7 @@
             this.buttonSellBook.TabIndex = 7;
             this.buttonSellBook.Text = "Register a book as sold";
             this.buttonSellBook.UseVisualStyleBackColor = true;
+            this.buttonSellBook.Click += new System.EventHandler(this.buttonSellBook_Click);
             // 
             // buttonExit
             // 
@@ -128,14 +135,6 @@
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // listBoxRegisterSold
-            // 
-            this.listBoxRegisterSold.FormattingEnabled = true;
-            this.listBoxRegisterSold.Location = new System.Drawing.Point(75, 236);
-            this.listBoxRegisterSold.Name = "listBoxRegisterSold";
-            this.listBoxRegisterSold.Size = new System.Drawing.Size(133, 108);
-            this.listBoxRegisterSold.TabIndex = 9;
             // 
             // labelLoginStatus
             // 
@@ -149,9 +148,9 @@
             // 
             // groupBoxProgram
             // 
+            this.groupBoxProgram.Controls.Add(this.listViewStockValue);
             this.groupBoxProgram.Controls.Add(this.labelFlair);
             this.groupBoxProgram.Controls.Add(this.listViewStock);
-            this.groupBoxProgram.Controls.Add(this.listBoxRegisterSold);
             this.groupBoxProgram.Controls.Add(this.buttonSellBook);
             this.groupBoxProgram.Controls.Add(this.buttonTotalStockStatus);
             this.groupBoxProgram.Controls.Add(this.buttonStockValue);
@@ -163,15 +162,6 @@
             this.groupBoxProgram.TabStop = false;
             this.groupBoxProgram.Visible = false;
             // 
-            // listViewStock
-            // 
-            this.listViewStock.HideSelection = false;
-            this.listViewStock.Location = new System.Drawing.Point(126, 56);
-            this.listViewStock.Name = "listViewStock";
-            this.listViewStock.Size = new System.Drawing.Size(169, 80);
-            this.listViewStock.TabIndex = 10;
-            this.listViewStock.UseCompatibleStateImageBehavior = false;
-            // 
             // labelFlair
             // 
             this.labelFlair.AutoSize = true;
@@ -181,6 +171,65 @@
             this.labelFlair.Size = new System.Drawing.Size(28, 24);
             this.labelFlair.TabIndex = 11;
             this.labelFlair.Text = ":D";
+            // 
+            // listViewStock
+            // 
+            this.listViewStock.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderTheme,
+            this.columnHeaderPrice,
+            this.columnHeaderStock});
+            this.listViewStock.FullRowSelect = true;
+            this.listViewStock.GridLines = true;
+            this.listViewStock.HideSelection = false;
+            this.listViewStock.Location = new System.Drawing.Point(46, 47);
+            this.listViewStock.Name = "listViewStock";
+            this.listViewStock.Size = new System.Drawing.Size(162, 109);
+            this.listViewStock.TabIndex = 10;
+            this.listViewStock.UseCompatibleStateImageBehavior = false;
+            this.listViewStock.View = System.Windows.Forms.View.Details;
+            this.listViewStock.Visible = false;
+            this.listViewStock.SelectedIndexChanged += new System.EventHandler(this.listViewStock_SelectedIndexChanged);
+            // 
+            // columnHeaderTheme
+            // 
+            this.columnHeaderTheme.Text = "Theme";
+            this.columnHeaderTheme.Width = 59;
+            // 
+            // columnHeaderPrice
+            // 
+            this.columnHeaderPrice.Text = "Price";
+            this.columnHeaderPrice.Width = 45;
+            // 
+            // columnHeaderStock
+            // 
+            this.columnHeaderStock.Text = "Stock";
+            this.columnHeaderStock.Width = 52;
+            // 
+            // listViewStockValue
+            // 
+            this.listViewStockValue.AutoArrange = false;
+            this.listViewStockValue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderTheme2,
+            this.columnHeaderValue2});
+            this.listViewStockValue.FullRowSelect = true;
+            this.listViewStockValue.GridLines = true;
+            this.listViewStockValue.HideSelection = false;
+            this.listViewStockValue.Location = new System.Drawing.Point(233, 42);
+            this.listViewStockValue.Name = "listViewStockValue";
+            this.listViewStockValue.Size = new System.Drawing.Size(114, 113);
+            this.listViewStockValue.TabIndex = 12;
+            this.listViewStockValue.UseCompatibleStateImageBehavior = false;
+            this.listViewStockValue.View = System.Windows.Forms.View.Details;
+            this.listViewStockValue.Visible = false;
+            // 
+            // columnHeaderTheme2
+            // 
+            this.columnHeaderTheme2.Text = "Theme";
+            // 
+            // columnHeaderValue2
+            // 
+            this.columnHeaderValue2.Text = "Value";
+            this.columnHeaderValue2.Width = 50;
             // 
             // Form1
             // 
@@ -214,11 +263,16 @@
         private System.Windows.Forms.Button buttonTotalStockStatus;
         private System.Windows.Forms.Button buttonSellBook;
         private System.Windows.Forms.Button buttonExit;
-        private System.Windows.Forms.ListBox listBoxRegisterSold;
         private System.Windows.Forms.Label labelLoginStatus;
         private System.Windows.Forms.GroupBox groupBoxProgram;
         private System.Windows.Forms.ListView listViewStock;
         private System.Windows.Forms.Label labelFlair;
+        private System.Windows.Forms.ColumnHeader columnHeaderPrice;
+        private System.Windows.Forms.ColumnHeader columnHeaderStock;
+        private System.Windows.Forms.ColumnHeader columnHeaderTheme;
+        private System.Windows.Forms.ListView listViewStockValue;
+        private System.Windows.Forms.ColumnHeader columnHeaderTheme2;
+        private System.Windows.Forms.ColumnHeader columnHeaderValue2;
     }
 }
 
