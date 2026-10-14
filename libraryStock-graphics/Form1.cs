@@ -8,7 +8,7 @@ namespace libraryStock_graphics
 {
     public partial class Form1 : Form
     {
-        // Windows API for textbox placeholder text
+        // Windows API textbox placeholder szovegnek, ezt csak a netrol loptuk
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr SendMessage(
             IntPtr hWnd,
@@ -19,11 +19,11 @@ namespace libraryStock_graphics
 
         private const int EM_SETCUEBANNER = 0x1501;
 
-        // Path to the CSV file
+        // csv filepath
         private readonly string filepath =
             @"C:\munkak\Github\csharp uj\libraryStock-graphics\libraryStock-ClassLibrary\bin\Debug\Comics.csv";
 
-        // Repository used by the selling functionality
+        // eladas gombhoz
         private ComicRepo repo;
 
         public Form1()
@@ -59,7 +59,7 @@ namespace libraryStock_graphics
         {
         }
 
-        // LOGIN
+        // login
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             LoginSystem login = new LoginSystem();
@@ -80,13 +80,13 @@ namespace libraryStock_graphics
             }
         }
 
-        // EXIT
+        // exit gomb
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        // DISPLAY COMIC STOCK
+        // comic stock kiiras
         private void buttonStockCount_Click(object sender, EventArgs e)
         {
             listViewStock.Visible = !listViewStock.Visible;
@@ -116,7 +116,7 @@ namespace libraryStock_graphics
         {
         }
 
-        // DISPLAY TOTAL STOCK VALUE
+        // stock es osszeadott aruk
         private void buttonStockValue_Click(object sender, EventArgs e)
         {
             listViewStockValue.Visible = !listViewStockValue.Visible;
@@ -140,7 +140,7 @@ namespace libraryStock_graphics
             }
         }
 
-        // SHOW OR HIDE THE SELLING CONTROLS
+        // elado gomb
         private void buttonSellBook_Click(object sender, EventArgs e)
         {
             comboBoxRegister.Visible = !comboBoxRegister.Visible;
@@ -154,7 +154,7 @@ namespace libraryStock_graphics
             }
         }
 
-        // LOAD COMIC NAMES INTO THE COMBOBOX
+        // dropdown combobox feltoltese a csvbol
         private void LoadComicsIntoComboBox()
         {
             try
@@ -171,7 +171,6 @@ namespace libraryStock_graphics
                     comboBoxRegister.Items.Add(comic.ThemeName);
                 }
 
-                // Restore the selection if it still exists
                 if (selectedComic != null &&
                     comboBoxRegister.Items.Contains(selectedComic))
                 {
@@ -193,7 +192,7 @@ namespace libraryStock_graphics
             }
         }
 
-        // SELL ONE COPY OF THE SELECTED COMIC
+        // egy comic eladasa
         private void buttonRegisterSell_Click(object sender, EventArgs e)
         {
             if (comboBoxRegister.SelectedItem == null)
@@ -207,7 +206,6 @@ namespace libraryStock_graphics
 
             try
             {
-                // Reload the latest data before selling
                 repo = new ComicRepo(filepath);
 
                 bool sold = repo.SellComic(selectedComic);
@@ -219,12 +217,12 @@ namespace libraryStock_graphics
 
                     labelSoldComic.Visible = true;
 
-                    // Refresh the ComboBox and keep the selection
+                    // frissiti a comboboxot
                     LoadComicsIntoComboBox();
 
                     comboBoxRegister.SelectedItem = selectedComic;
 
-                    // Refresh stock displays if they are visible
+                    // frissiti a stock listakat
                     RefreshStockDisplays();
                 }
                 else
@@ -246,7 +244,7 @@ namespace libraryStock_graphics
             }
         }
 
-        // REFRESH STOCK LISTS AFTER A SALE
+        // stock listak frissitese eladas utan
         private void RefreshStockDisplays()
         {
             ComicRepo stockRepo = new ComicRepo(filepath);
@@ -284,6 +282,7 @@ namespace libraryStock_graphics
             }
         }
 
+        // stock statusz kiirasa
         private void buttonTotalStockStatus_Click(object sender, EventArgs e)
         {
             groupBoxStockStatus.Visible = !groupBoxStockStatus.Visible;
