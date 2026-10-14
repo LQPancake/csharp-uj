@@ -39,15 +39,22 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.labelLoginStatus = new System.Windows.Forms.Label();
             this.groupBoxProgram = new System.Windows.Forms.GroupBox();
+            this.listViewStockValue = new System.Windows.Forms.ListView();
+            this.columnHeaderTheme2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderValue2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelFlair = new System.Windows.Forms.Label();
             this.listViewStock = new System.Windows.Forms.ListView();
             this.columnHeaderTheme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderStock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listViewStockValue = new System.Windows.Forms.ListView();
-            this.columnHeaderTheme2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderValue2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.comboBoxRegister = new System.Windows.Forms.ComboBox();
+            this.buttonRegisterSell = new System.Windows.Forms.Button();
+            this.labelSoldComic = new System.Windows.Forms.Label();
+            this.labelStockNumber = new System.Windows.Forms.Label();
+            this.labelStockStatusText = new System.Windows.Forms.Label();
+            this.groupBoxStockStatus = new System.Windows.Forms.GroupBox();
             this.groupBoxProgram.SuspendLayout();
+            this.groupBoxStockStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelLogin
@@ -115,6 +122,7 @@
             this.buttonTotalStockStatus.TabIndex = 6;
             this.buttonTotalStockStatus.Text = "Total Stock Status";
             this.buttonTotalStockStatus.UseVisualStyleBackColor = true;
+            this.buttonTotalStockStatus.Click += new System.EventHandler(this.buttonTotalStockStatus_Click);
             // 
             // buttonSellBook
             // 
@@ -148,6 +156,10 @@
             // 
             // groupBoxProgram
             // 
+            this.groupBoxProgram.Controls.Add(this.groupBoxStockStatus);
+            this.groupBoxProgram.Controls.Add(this.labelSoldComic);
+            this.groupBoxProgram.Controls.Add(this.buttonRegisterSell);
+            this.groupBoxProgram.Controls.Add(this.comboBoxRegister);
             this.groupBoxProgram.Controls.Add(this.listViewStockValue);
             this.groupBoxProgram.Controls.Add(this.labelFlair);
             this.groupBoxProgram.Controls.Add(this.listViewStock);
@@ -161,6 +173,32 @@
             this.groupBoxProgram.TabIndex = 11;
             this.groupBoxProgram.TabStop = false;
             this.groupBoxProgram.Visible = false;
+            // 
+            // listViewStockValue
+            // 
+            this.listViewStockValue.AutoArrange = false;
+            this.listViewStockValue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderTheme2,
+            this.columnHeaderValue2});
+            this.listViewStockValue.FullRowSelect = true;
+            this.listViewStockValue.GridLines = true;
+            this.listViewStockValue.HideSelection = false;
+            this.listViewStockValue.Location = new System.Drawing.Point(233, 42);
+            this.listViewStockValue.Name = "listViewStockValue";
+            this.listViewStockValue.Size = new System.Drawing.Size(114, 113);
+            this.listViewStockValue.TabIndex = 12;
+            this.listViewStockValue.UseCompatibleStateImageBehavior = false;
+            this.listViewStockValue.View = System.Windows.Forms.View.Details;
+            this.listViewStockValue.Visible = false;
+            // 
+            // columnHeaderTheme2
+            // 
+            this.columnHeaderTheme2.Text = "Theme";
+            // 
+            // columnHeaderValue2
+            // 
+            this.columnHeaderValue2.Text = "Value";
+            this.columnHeaderValue2.Width = 50;
             // 
             // labelFlair
             // 
@@ -205,31 +243,73 @@
             this.columnHeaderStock.Text = "Stock";
             this.columnHeaderStock.Width = 52;
             // 
-            // listViewStockValue
+            // comboBoxRegister
             // 
-            this.listViewStockValue.AutoArrange = false;
-            this.listViewStockValue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderTheme2,
-            this.columnHeaderValue2});
-            this.listViewStockValue.FullRowSelect = true;
-            this.listViewStockValue.GridLines = true;
-            this.listViewStockValue.HideSelection = false;
-            this.listViewStockValue.Location = new System.Drawing.Point(233, 42);
-            this.listViewStockValue.Name = "listViewStockValue";
-            this.listViewStockValue.Size = new System.Drawing.Size(114, 113);
-            this.listViewStockValue.TabIndex = 12;
-            this.listViewStockValue.UseCompatibleStateImageBehavior = false;
-            this.listViewStockValue.View = System.Windows.Forms.View.Details;
-            this.listViewStockValue.Visible = false;
+            this.comboBoxRegister.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRegister.FormattingEnabled = true;
+            this.comboBoxRegister.Items.AddRange(new object[] {
+            "Joker",
+            "Batman",
+            "Cat",
+            "Riddler",
+            "Penguin"});
+            this.comboBoxRegister.Location = new System.Drawing.Point(75, 236);
+            this.comboBoxRegister.Name = "comboBoxRegister";
+            this.comboBoxRegister.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRegister.TabIndex = 13;
+            this.comboBoxRegister.Visible = false;
             // 
-            // columnHeaderTheme2
+            // buttonRegisterSell
             // 
-            this.columnHeaderTheme2.Text = "Theme";
+            this.buttonRegisterSell.Location = new System.Drawing.Point(100, 263);
+            this.buttonRegisterSell.Name = "buttonRegisterSell";
+            this.buttonRegisterSell.Size = new System.Drawing.Size(75, 23);
+            this.buttonRegisterSell.TabIndex = 14;
+            this.buttonRegisterSell.Text = "Sell";
+            this.buttonRegisterSell.UseVisualStyleBackColor = true;
+            this.buttonRegisterSell.Visible = false;
+            this.buttonRegisterSell.Click += new System.EventHandler(this.buttonRegisterSell_Click);
             // 
-            // columnHeaderValue2
+            // labelSoldComic
             // 
-            this.columnHeaderValue2.Text = "Value";
-            this.columnHeaderValue2.Width = 50;
+            this.labelSoldComic.AutoSize = true;
+            this.labelSoldComic.Location = new System.Drawing.Point(119, 289);
+            this.labelSoldComic.Name = "labelSoldComic";
+            this.labelSoldComic.Size = new System.Drawing.Size(31, 13);
+            this.labelSoldComic.TabIndex = 15;
+            this.labelSoldComic.Text = "Sold!";
+            this.labelSoldComic.Visible = false;
+            // 
+            // labelStockNumber
+            // 
+            this.labelStockNumber.AutoSize = true;
+            this.labelStockNumber.Location = new System.Drawing.Point(6, 24);
+            this.labelStockNumber.Name = "labelStockNumber";
+            this.labelStockNumber.Size = new System.Drawing.Size(68, 13);
+            this.labelStockNumber.TabIndex = 17;
+            this.labelStockNumber.Text = "Total Stock: ";
+            this.labelStockNumber.Click += new System.EventHandler(this.labelStockNumber_Click);
+            // 
+            // labelStockStatusText
+            // 
+            this.labelStockStatusText.AutoSize = true;
+            this.labelStockStatusText.Location = new System.Drawing.Point(102, 24);
+            this.labelStockStatusText.Name = "labelStockStatusText";
+            this.labelStockStatusText.Size = new System.Drawing.Size(71, 13);
+            this.labelStockStatusText.TabIndex = 18;
+            this.labelStockStatusText.Text = "Stock Status:";
+            this.labelStockStatusText.Click += new System.EventHandler(this.labelStockStatusText_Click);
+            // 
+            // groupBoxStockStatus
+            // 
+            this.groupBoxStockStatus.Controls.Add(this.labelStockStatusText);
+            this.groupBoxStockStatus.Controls.Add(this.labelStockNumber);
+            this.groupBoxStockStatus.Location = new System.Drawing.Point(226, 236);
+            this.groupBoxStockStatus.Name = "groupBoxStockStatus";
+            this.groupBoxStockStatus.Size = new System.Drawing.Size(217, 48);
+            this.groupBoxStockStatus.TabIndex = 19;
+            this.groupBoxStockStatus.TabStop = false;
+            this.groupBoxStockStatus.Visible = false;
             // 
             // Form1
             // 
@@ -244,9 +324,11 @@
             this.Controls.Add(this.textboxUsername);
             this.Controls.Add(this.labelLogin);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Comics";
             this.groupBoxProgram.ResumeLayout(false);
             this.groupBoxProgram.PerformLayout();
+            this.groupBoxStockStatus.ResumeLayout(false);
+            this.groupBoxStockStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +355,12 @@
         private System.Windows.Forms.ListView listViewStockValue;
         private System.Windows.Forms.ColumnHeader columnHeaderTheme2;
         private System.Windows.Forms.ColumnHeader columnHeaderValue2;
+        private System.Windows.Forms.ComboBox comboBoxRegister;
+        private System.Windows.Forms.Button buttonRegisterSell;
+        private System.Windows.Forms.Label labelSoldComic;
+        private System.Windows.Forms.GroupBox groupBoxStockStatus;
+        private System.Windows.Forms.Label labelStockStatusText;
+        private System.Windows.Forms.Label labelStockNumber;
     }
 }
 
