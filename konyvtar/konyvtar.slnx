@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="konyvtar_classLibrary/konyvtar_classLibrary.csproj" />
+  <Project Path="konyvtar_console/konyvtar_console.csproj" />
+  <Project Path="konyvtar_forms/konyvtar_forms.csproj" />
+</Solution>
