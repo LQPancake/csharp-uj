@@ -37,3 +37,42 @@ C:\Users\baljoz2022a\source\repos\LQPancake\c-sharp\konyvtar\konyvtar_console\ob
 C:\Users\baljoz2022a\source\repos\LQPancake\c-sharp\konyvtar\konyvtar_console\obj\Debug\konyvtar.98E5102A.Up2Date
 C:\Users\baljoz2022a\source\repos\LQPancake\c-sharp\konyvtar\konyvtar_console\obj\Debug\konyvtar_console.exe
 C:\Users\baljoz2022a\source\repos\LQPancake\c-sharp\konyvtar\konyvtar_console\obj\Debug\konyvtar_console.pdb
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\konyvtar_console.exe.config
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\konyvtar_console.exe
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\konyvtar_console.pdb
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\BouncyCastle.Cryptography.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\Google.Protobuf.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\K4os.Compression.LZ4.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\K4os.Hash.xxHash.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\konyvtar_classLibrary.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\MySql.Data.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Buffers.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.IO.Pipelines.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Memory.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Numerics.Vectors.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\ZstdSharp.dll
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\konyvtar_classLibrary.pdb
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\konyvtar_classLibrary.dll.config
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\BouncyCastle.Cryptography.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\Google.Protobuf.pdb
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\Google.Protobuf.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\K4os.Compression.LZ4.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\K4os.Hash.xxHash.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\MySql.Data.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Buffers.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.IO.Pipelines.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Memory.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Numerics.Vectors.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\obj\Debug\konyvtar_console.csproj.AssemblyReference.cache
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\obj\Debug\konyvtar_console.csproj.CoreCompileInputs.cache
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\obj\Debug\konyvtar.98E5102A.Up2Date
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\obj\Debug\konyvtar_console.exe
+C:\munkak\Github\csharp uj\konyvtar\konyvtar_console\obj\Debug\konyvtar_console.pdb

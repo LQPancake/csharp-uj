@@ -26,11 +26,44 @@ namespace konyvtar_console
                 connection.Close();
                 Console.WriteLine("A kapcsolat működik");
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
                 Console.WriteLine("Hiba a MySQL kapcsolat létrehozásakor: " + ex.Message);
+                Console.ReadKey();
+                return;
             }
-            Console.ReadKey();
+            Console.WriteLine("Kölcsönző személyek adatainak felvitele");
+            Console.WriteLine("---------------------------------------\n");
+            while (true)
+            {
+                Console.Write("Kölcsönző neve (*): ");
+                string kolcsonzoNev = Console.ReadLine();
+                if (kolcsonzoNev == "") break;
+                Console.Write("Kölcsönző telefonszáma: ");
+                string kolcsonzoTelefonSzam = Console.ReadLine();
+                Console.Write("Kölcsönző címe: ");
+                string kolcsonzoCime = Console.ReadLine();
+                Console.Write("Kölcsönző email címe: ");
+                string kolcsonzoEmail = Console.ReadLine();
+                string parancsString = "INSERT INTO " +
+                    "kolcsonzok (kolcsonzoNev, kolcsonzoTelefonSzam, kolcsonzoCime, kolcsonzoEmail) " +
+                    $"VALUES ('{kolcsonzoNev}', '{kolcsonzoTelefonSzam}', '{kolcsonzoCime}', '{kolcsonzoEmail}')";
+                try
+                {
+                    MySqlConnection beszurasConn = new MySqlConnection(connectionString);
+                    beszurasConn.Open();
+                    MySqlCommand insertKolcsonzo = new MySqlCommand(parancsString, beszurasConn);
+                    insertKolcsonzo.ExecuteNonQuery();
+                    beszurasConn.Close();
+                    Console.WriteLine("Adat bevitel sikeres");
+                }
+                catch(MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                Console.ReadKey();
+            }
         }
     }
 }

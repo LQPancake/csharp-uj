@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="konyvtar_classLibrary/konyvtar_classLibrary.csproj" />
-  <Project Path="konyvtar_console/konyvtar_console.csproj" />
-  <Project Path="konyvtar_forms/konyvtar_forms.csproj" />
+  <Project Path="konyvtar_classLibrary/konyvtar_classLibrary.csproj" Id="10466868-00c2-40eb-bc6d-64836c0ae008" />
+  <Project Path="konyvtar_console/konyvtar_console.csproj" Id="c80edff2-e1e0-4057-94af-961e4a8e06f2" />
+  <Project Path="konyvtar_forms/konyvtar_forms.csproj" Id="39b2c561-6064-458c-a70f-f87f3c6bf5b1" />
 </Solution>
