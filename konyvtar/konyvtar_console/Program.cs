@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using konyvtar_classLibrary;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace konyvtar_console
 {
@@ -57,13 +52,106 @@ namespace konyvtar_console
                     beszurasConn.Close();
                     Console.WriteLine("Adat bevitel sikeres");
                 }
-                catch(MySqlException ex)
+                catch (MySqlException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-
-                Console.ReadKey();
             }
+            Console.ReadKey();
+
+            //------------------------------------------------
+            // SELECT
+            //------------------------------------------------
+
+            string parancsSelect = "SELECT * FROM kolcsonzok";
+            MySqlConnection listaConn = new MySqlConnection(connectionString);
+            listaConn.Open();
+            MySqlCommand commandSelect = new MySqlCommand(parancsSelect, listaConn);
+            MySqlDataReader adatok = commandSelect.ExecuteReader();
+
+            while (adatok.Read())
+            {
+                Console.WriteLine("" +
+                    $"{adatok["kolcsonzokID"]}\t" +
+                    $"{adatok["kolcsonzoNev"]}\t" +
+                    $"{adatok["kolcsonzoTelefonSzam"]}\t" +
+                    $"{adatok["kolcsonzoCime"]}\t" +
+                    $"{adatok["kolcsonzoEmail"]}");
+            }
+            listaConn.Close();
+            Console.ReadKey();
+
+            //------------------------------------------------
+            // UPDATE
+            //------------------------------------------------
+
+            while (true)
+            {
+                Console.Write("Melyik sort szeretnéd módosítani? ");
+                int modositando = int.Parse(Console.ReadLine());
+                if (modositando == 0) break;
+                Console.Write("Kölcsönző neve (*): ");
+                string updateNev = Console.ReadLine();
+                Console.Write("Kölcsönző telefonszáma: ");
+                string updateTelefonSzam = Console.ReadLine();
+                Console.Write("Kölcsönző címe: ");
+                string updateCime = Console.ReadLine();
+                Console.Write("Kölcsönző email címe: ");
+                string updateEmail = Console.ReadLine();
+
+                string parancsUpdate = "UPDATE kolcsonzok " +
+                $"SET kolcsonzoNev='{updateNev}', " +
+                $"kolcsonzoTelefonSzam='{updateTelefonSzam}', " +
+                $"kolcsonzoCime='{updateCime}', " +
+                $"kolcsonzoEmail='{updateEmail}' " +
+                $"WHERE kolcsonzokID={modositando}";
+
+                try
+                {
+                    MySqlConnection connUpdate = new MySqlConnection(connectionString);
+                    connUpdate.Open();
+                    MySqlCommand cmdUpdate = new MySqlCommand(parancsUpdate, connUpdate);
+                    int siker = cmdUpdate.ExecuteNonQuery();
+                    Console.WriteLine($"Státusz: {siker}");
+                    connUpdate.Close();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+
+
+            Console.ReadKey();
+
+            //------------------------------------------------
+            // DELETE
+            //------------------------------------------------
+
+            while (true)
+            {
+                Console.Write("Melyik sort szeretnéd törölni? ");
+                int torlendo = int.Parse(Console.ReadLine());
+                if (torlendo == 0) break;
+                string parancsDelete = $"DELETE FROM kolcsonzok WHERE kolcsonzokID={torlendo}";
+
+                try
+                {
+                    MySqlConnection connDelete = new MySqlConnection(connectionString);
+                    connDelete.Open();
+                    MySqlCommand cmdDelete = new MySqlCommand(parancsDelete, connDelete);
+                    int siker = cmdDelete.ExecuteNonQuery();
+                    Console.WriteLine($"Státusz: {siker}");
+                    connDelete.Close();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }
